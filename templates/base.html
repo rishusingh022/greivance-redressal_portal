@@ -30,12 +30,22 @@
       	{% block content %}
 
           <div class="flex-center flex-column">
+
               <h1 class="animated fadeIn mb-4">Welcome</h1>
 
               <h5 class="animated fadeIn mb-3">To Greivance-redressal-portal</h5>
 
               <p class="animated fadeIn text-muted">Add Yours.</p>
+              <ul>
+              {% for Problem in problems %}
+                  <li><h1>{{Problem.category}}</h1></br>
+                    <h5>{{Problem.title}}</h5></br>
+                    <p>{{Problem.body}}</p>
+                  </li>
+              {% endfor %}
+              </ul>
           </div>
+
 
         {% endblock %}
       </div>
@@ -55,4 +65,3 @@
 </body>
 
 </html>
-

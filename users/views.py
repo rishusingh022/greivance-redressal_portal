@@ -3,7 +3,8 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-
+from django.views.generic import ListView, DetailView
+from .models import Problem
 from .forms import SignUpForm
 
 def signup_view(request):
@@ -31,5 +32,8 @@ def dashboard_view(request):
 	return render(request, 'app/dashboard.html')
 
 
+#def home_view(request):
+	#return render(request, 'app/home.html')
 def home_view(request):
-	return render(request, 'app/home.html')
+	context={"problems" : Problem.objects.all()}
+	return render(request, 'app/home.html', context)
